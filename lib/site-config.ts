@@ -31,8 +31,15 @@ export interface SiteConfig {
   pageUrlOverrides?: types.PageUrlOverridesMap
   pageUrlAdditions?: types.PageUrlOverridesMap
 
-  navigationStyle?: types.NavigationStyle
-  navigationLinks?: Array<NavigationLink>
+  navigationStyle?: types.NavigationStyle;
+  navigationLinks?: Array<NavigationLink>;
+
+  // custom configs (jhcode33)
+  dateformat: string;
+  hiddenPostProperties: string[];
+  defaultTheme: 'light' | 'dark' | 'system';
+  enableComment: boolean;
+  contentPositionTextAlign: 'left' | 'right';
 }
 
 export interface NavigationLink {

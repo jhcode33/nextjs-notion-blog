@@ -10,7 +10,7 @@ import posthog from 'posthog-js'
 // used for code syntax highlighting (optional)
 import 'prismjs/themes/prism-coy.css'
 // core styles shared by all of react-notion-x (required)
-import 'react-notion-x/src/styles.css'
+import 'react-notion-x/styles.css'
 import 'styles/global.css'
 // this might be better for dark mode
 // import 'prismjs/themes/prism-okaidia.css'

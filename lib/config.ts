@@ -8,7 +8,7 @@ import { parsePageId } from 'notion-utils'
 import { PostHogConfig } from 'posthog-js'
 
 import { getEnv, getSiteConfig } from './get-config-value'
-import { NavigationLink } from './site-config'
+import { NavigationLink, SiteConfig } from './site-config'
 import {
   NavigationStyle,
   PageUrlOverridesInverseMap,
@@ -219,3 +219,14 @@ function invertPageUrlOverrides(
     }
   }, {})
 }
+
+
+export const dateformat: string = getSiteConfig('dateformat', 'yyyy.MM.dd');
+export const hiddenPostProperties: string[] = getSiteConfig('hiddenPostProperties', []);
+export const defaultTheme: SiteConfig['defaultTheme'] = getSiteConfig('defaultTheme', 'system');
+export const contentPositionTextAlign: SiteConfig['contentPositionTextAlign'] = getSiteConfig(
+  'contentPositionTextAlign',
+  'left',
+);
+export const enableComment: boolean = getSiteConfig('enableComment', false);
+

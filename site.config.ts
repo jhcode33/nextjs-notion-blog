@@ -10,7 +10,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'jhcode33-blog',
-  domain: 'jhcode33.iptime.org',
+  domain: 'jhcode33-blog',
   author: 'jhcode33',
 
   // open graph metadata (optional)
@@ -50,7 +50,7 @@ export default siteConfig({
 
   // whether to use the default notion navigation style or a custom one with links to
   // important pages. To use `navigationLinks`, set `navigationStyle` to `custom`.
-  navigationStyle: 'default'
+  navigationStyle: 'default',
   // navigationStyle: 'custom',
   // navigationLinks: [
   //   {
@@ -62,4 +62,20 @@ export default siteConfig({
   //     pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
   //   }
   // ]
+  // -------- custom configs (2skydev) -------------
+
+  // date-fns format string
+  dateformat: 'yyyy년 MM월 dd일',
+
+  // post page - hidden properties
+  hiddenPostProperties: ['설명', '상태', '최하위 정렬'],
+
+  // contentPosition (table of contents) text align
+  contentPositionTextAlign: 'left',
+
+  // default theme color
+  defaultTheme: 'system',
+
+  // enable comment
+  enableComment: true,
 })
