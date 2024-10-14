@@ -65,7 +65,7 @@ const _Breadcrumbs: React.FC<{
             >
               {breadcrumb.icon && <PageIcon className="icon" block={breadcrumb.block} />}
 
-              {breadcrumb.title && <span className="title">{breadcrumb.title}</span>}
+              {/* {breadcrumb.title && <span className="title">{breadcrumb.title}</span>} */}
             </componentMap.pageLink>
 
             {index < breadcrumbs.length - 1 && <span className="spacer">/</span>}

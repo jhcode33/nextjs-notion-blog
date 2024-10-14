@@ -5,9 +5,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({
   staticPageGenerationTimeout: 300,
-  experimental:{
-    externalDir: true
-  },
   images: {
     remotePatterns: [
       {
