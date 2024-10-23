@@ -10,7 +10,7 @@ import { PageTitle } from '../components/page-title';
 import { GracefulImage } from '../components/graceful-image';
 import { evalFormula } from './eval-formula';
 import { dateformat } from '@/lib/config';
-import { toZonedTime, format } from 'date-fns-tz';
+import { utcToZonedTime, format } from 'date-fns-tz';
 
 export interface IPropertyProps {
   propertyId?: string;
@@ -84,7 +84,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = props => {
 
           if (content instanceof Date) {
             // CUSTOM: 날짜 포맷
-            content = format(toZonedTime(content, 'Asia/Seoul'), dateformat);
+            content = format(utcToZonedTime(content, 'Asia/Seoul'), dateformat);
           }
         } catch (err) {
           // console.log('error evaluating formula', schema.formula, err)
@@ -266,7 +266,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = props => {
     () =>
       function CreatedTimeProperty() {
         // CUSTOM: 날짜 포맷
-        return format(toZonedTime(block.created_time, 'Asia/Seoul'), dateformat);
+        return format(utcToZonedTime(block.created_time, 'Asia/Seoul'), dateformat);
       },
     [block?.created_time],
   );
@@ -275,7 +275,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = props => {
     () =>
       function LastEditedTimeProperty() {
         // CUSTOM: 날짜 포맷
-        return format(toZonedTime(block?.last_edited_time, 'Asia/Seoul'), dateformat);
+        return format(utcToZonedTime(block?.last_edited_time, 'Asia/Seoul'), dateformat);
       },
     [block?.last_edited_time],
   );
