@@ -2,11 +2,15 @@ import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
   // the site's root Notion page (required)
-  rootNotionPageId: '1179ca88d014802f8fcee11e87c257b2',
+  rootNotionPageId: '1299ca88d014801c9b86c1464a181155',
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
-  rootNotionSpaceId: null,
+  rootNotionSpaceId: 'a7bf333d-3700-4ad8-a838-d8d324d5e599',
+
+  // if you want to restrict pages to a single page in database (optional)
+  // (this should be a Notion ID; see the docs for NotionAPI Docs; You use Retrieve a page API)
+  rootDatabaseId: '1179ca88-d014-81cb-9e3f-f155d1330bfc',
 
   // basic site info (required)
   name: 'Jhcode33 Tech Blog',
@@ -38,6 +42,7 @@ export default siteConfig({
   // environment variables. see the readme for more info
   isRedisEnabled: false,
 
+  includeNotionIdInUrls: true,
   // map of notion page IDs to URL paths (optional)
   // any pages defined here will override their default URL paths
   // example:
