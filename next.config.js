@@ -1,9 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path'); // path 모듈 추가
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 })
 
 module.exports = withBundleAnalyzer({
+  output: 'standalone',
   staticPageGenerationTimeout: 300,
   images: {
     remotePatterns: [

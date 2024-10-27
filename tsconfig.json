@@ -22,11 +22,13 @@
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"],
+      "@/pages/*":["pages/*"],
       "notion-client": ["packages/notion-client"],
       "notion-compat": ["packages/notion-compat"],
       "notion-types": ["packages/notion-types"],
       "notion-utils": ["packages/notion-utils"],
-      "react-notion-x": ["packages/react-notion-x"]
+      "react-notion-x": ["packages/react-notion-x"],
+      "react-notion-x/*": ["packages/react-notion-x/*"]
     }
   },
   "exclude": ["node_modules"],

@@ -10,11 +10,11 @@ export default siteConfig({
 
   // if you want to restrict pages to a single page in database (optional)
   // (this should be a Notion ID; see the docs for NotionAPI Docs; You use Retrieve a page API)
-  rootDatabaseId: '1179ca88-d014-81cb-9e3f-f155d1330bfc',
+  rootDatabaseId: '1299ca88-d014-8185-8698-e0cfcd768679',
 
   // basic site info (required)
   name: 'Jhcode33 Tech Blog',
-  domain: 'jhcode33 blog',
+  domain: 'jhcode33.iptime.org',
   author: 'jhcode33',
 
   // open graph metadata (optional)

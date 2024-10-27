@@ -3,7 +3,7 @@ import { BaseContentBlock, Block } from 'notion-types'
 import { Asset } from './asset'
 import { cs } from '../utils'
 import { Text } from './text'
-import { useNotionContext } from '..'
+import { useNotionContext } from '../context'
 import { parsePageId } from 'notion-utils'
 
 const urlStyle = { width: '100%' }
