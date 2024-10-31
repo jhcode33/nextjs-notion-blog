@@ -8,13 +8,13 @@ services:
     ports:
       - "3306:3306"
 
-  redis: # container name
+  redis:
     container_name: redis
     image: redis:7.4.1
     ports:
       - "6379:6379"
     command: redis-server /usr/local/etc/redis/redis.conf
-    volumes: # 마운트할 볼륨 설정
+    volumes:
       - ${REDIS_DATA_PATH}:/data
       - ${REDIS_DEFAULT_CONFIG_FILE}:/usr/local/etc/redis/redis.conf
     restart: always
