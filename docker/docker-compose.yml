@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: mysql-server
+    image: mysql:9.1.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+
+  redis:
+    container_name: redis
+    image: redis:7.4.1
+    ports:
+      - "6379:6379"
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ${REDIS_DATA_PATH}:/data
+      - ${REDIS_DEFAULT_CONFIG_FILE}:/usr/local/etc/redis/redis.conf
+    restart: always
+    depends_on:
+      - mysql
+
+  nextjs-notion-blog:
+    container_name: nextjs-notion-blog
+    image: jhcode33/nextjs-server-image:${TAG}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
