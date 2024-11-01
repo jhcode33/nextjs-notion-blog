@@ -13,7 +13,7 @@ services:
 
   nextjs-notion-blog:
     container_name: nextjs-notion-blog
-    image: jhcode33/nextjs-server-image:${TAG}
+    image: jhcode33/nextjs-notion-blog:${TAG}
     ports:
       - "3000:3000"
     depends_on:
