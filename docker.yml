@@ -9,8 +9,8 @@ WORKDIR /usr/src/app
 
 # Dependancy install을 위해 package.json, package-lock.json, yarn.lock 복사 
 # workspace에 있는 각 모듈의 패키지 매니저 파일도 포함시킴
-COPY ../package.json ../yarn.lock ../tsconfig.json ./
-COPY ../packages/ ./packages/
+COPY package.json yarn.lock tsconfig.json ./ 
+COPY packages/ ./packages/
 
 # Dependancy 설치 (새로운 lock 파일 수정 또는 생성 방지)
 #RUN yarn add sharp --os=linux --libc=musl --cpu=x64 -W
@@ -30,12 +30,12 @@ WORKDIR /usr/src/app
 # node_modules 등의 dependancy를 복사함.
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY --from=deps /usr/src/app/packages ./packages
-COPY ../public/ ./public/
-COPY ../ ./
+COPY public/ ./public/
+COPY . .
 
 # 구축 환경에 따라 env 변수를 다르게 가져가야 하는 경우 환경 변수를 이용해서 env를 구분해준다.
 # .env.$EVN_MODE 파일을 container 내부에 ./.evn.production으로 복사
-COPY ../.env.$ENV_MODE ./.env.production
+COPY .env.$ENV_MODE ./.env.production
 RUN yarn build
 
 ###########################################################
@@ -62,3 +62,6 @@ EXPOSE 3000
 
 # node로 애플리케이션 실행
 CMD ["node", "server.js"] 
+
+# standalone으로 나온 결과값은 node 자체적으로만 실행 가능
+# CMD ["npm", "start"]
