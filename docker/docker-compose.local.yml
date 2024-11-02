@@ -15,5 +15,6 @@ services:
     image: jhcode33/nextjs-notion-blog:1.0.0
     ports:
       - "3000:3000"
+    restart: always
     depends_on:
       - redis

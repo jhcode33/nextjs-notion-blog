@@ -14,7 +14,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Jhcode33 Tech Blog',
-  domain: 'jhcode33.iptime.org',
+  domain: 'www.jhcode33.com',
   author: 'jhcode33',
 
   // open graph metadata (optional)
