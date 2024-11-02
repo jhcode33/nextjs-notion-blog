@@ -5,3 +5,9 @@ services:
     image: jhcode33/nextjs-notion-blog:${TAG}
     ports:
       - "3000:3000"
+    networks:
+      - nextjs-notion-blog
+
+networks:
+  nextjs-notion-blog:
+    external: true
