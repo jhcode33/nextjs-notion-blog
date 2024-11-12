@@ -1,12 +1,18 @@
-version: '3.8'
+version: "3.3"
+
+networks:
+  nextjs-notion-blog:
+    driver: bridge
+
 services:
   redis:
     container_name: redis
     image: redis:7.4.1
+    user: "redis:redis"
     networks:
       - nextjs-notion-blog
-    ports:
-      - "6379:6379"
+    expose:
+      - "6379"
     command: redis-server /usr/local/etc/redis/redis.conf
     volumes:
       - ${REDIS_DATA_PATH}:/data
@@ -18,12 +24,8 @@ services:
     image: jhcode33/nextjs-notion-blog:${TAG}
     networks:
       - nextjs-notion-blog
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     depends_on:
       - redis
-
-networks:
-  default:
-      external: 
-        nextjs-notion-blog
+    restart: always
