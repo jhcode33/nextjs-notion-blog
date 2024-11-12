@@ -7,7 +7,7 @@ networks:
 services:
   nginx:
     container_name: nginx
-    image: nginx:1.22.1-alpine
+    image: jhcode33/nginx
     user: "nginx:nginx"
     networks:
       - nextjs-notion-blog
