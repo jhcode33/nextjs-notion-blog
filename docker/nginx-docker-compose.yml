@@ -1,0 +1,25 @@
+version: "3.3"
+
+networks:
+  nextjs-notion-blog:
+    driver: bridge
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.22.1-alpine
+    user: "nginx:nginx"
+    networks:
+      - nextjs-notion-blog
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - ${NGINX_ROOT}/certbot/conf:/etc/letsencrypt:rw     # 인증서 경로
+      - ${NGINX_ROOT}/certbot/logs:/var/log/letsencrypt:rw
+      - ${NGINX_ROOT}/certbot/data:/var/www/certbot:rw     # 인증서 웹루트 경로
+      - ${NGINX_ROOT}/sites.conf:/etc/nginx/conf.d/sites.conf
+      - ${NGINX_ROOT}/sites-enabled:/etc/nginx/sites-enabled
+    restart: always
