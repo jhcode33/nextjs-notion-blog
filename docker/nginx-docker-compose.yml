@@ -2,13 +2,12 @@ version: "3.3"
 
 networks:
   nextjs-notion-blog:
-    driver: bridge
+    external: true
 
 services:
   nginx:
     container_name: nginx
-    image: jhcode33/nginx
-    user: "nginx:nginx"
+    image: nginx:1.22.1-alpine
     networks:
       - nextjs-notion-blog
     ports:
