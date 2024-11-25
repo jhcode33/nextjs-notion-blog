@@ -14,7 +14,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Jhcode33 Tech Blog',
-  domain: 'www.jhcode33.com',
+  domain: '',
   author: 'jhcode33',
 
   // open graph metadata (optional)
@@ -40,7 +40,7 @@ export default siteConfig({
   // whether or not redis is enabled for caching generated preview images (optional)
   // NOTE: if you enable redis, you need to set the `REDIS_HOST` and `REDIS_PASSWORD`
   // environment variables. see the readme for more info
-  isRedisEnabled: true,
+  isRedisEnabled: false,
 
   includeNotionIdInUrls: true,
   // map of notion page IDs to URL paths (optional)
@@ -56,17 +56,17 @@ export default siteConfig({
   // whether to use the default notion navigation style or a custom one with links to
   // important pages. To use `navigationLinks`, set `navigationStyle` to `custom`.
   // navigationStyle: 'default',
-  navigationStyle: 'custom',
-  navigationLinks: [
-    {
-      title: 'About',
-      pageId: '1179ca88d01481c7a782f8ff7989136b'
-    },
-    {
-      title: 'Portfolio',
-      pageId: '1179ca88d01481c483e9f76a9a5116be'
-    }
-  ],
+  navigationStyle: 'default',
+  // navigationLinks: [
+  //   {
+  //     title: 'About',
+  //     pageId: '1179ca88d01481c7a782f8ff7989136b'
+  //   },
+  //   {
+  //     title: 'Portfolio',
+  //     pageId: '1179ca88d01481c483e9f76a9a5116be'
+  //   }
+  // ],
   // -------- custom configs (2skydev) -------------
 
   // date-fns format string
