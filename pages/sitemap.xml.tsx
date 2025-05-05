@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   }
 
   const siteMap = await getSiteMap()
-
+  console.log('siteMap: ', siteMap);
   // cache for up to 8 hours
   res.setHeader(
     'Cache-Control',
@@ -36,10 +36,6 @@ const createSitemap = (siteMap: SiteMap) =>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
       <loc>${host}</loc>
-    </url>
-
-    <url>
-      <loc>${host}/</loc>
     </url>
 
     ${Object.keys(siteMap.canonicalPageMap)
