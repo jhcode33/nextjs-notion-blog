@@ -36,5 +36,9 @@ yarn-error.log*
 .env.production
 .env.production.local
 /config
+
 # vercel
 .vercel
+
+#module
+yarn.lock

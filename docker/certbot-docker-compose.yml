@@ -1,9 +1,15 @@
 version: "3.3"
 
+networks:
+  nextjs-notion-blog:
+    external: true
+
 services:
   certbot:
-    image: certbot/certbot:latest
     container_name: certbot
+    image: certbot/certbot:latest
+    networks:
+      - nextjs-notion-blog
     command: >
       certonly
       --webroot

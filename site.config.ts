@@ -8,10 +8,6 @@ export default siteConfig({
   // (this should be a Notion ID; see the docs for how to extract this)
   rootNotionSpaceId: 'a7bf333d-3700-4ad8-a838-d8d324d5e599',
 
-  // if you want to restrict pages to a single page in database (optional)
-  // (this should be a Notion ID; see the docs for NotionAPI Docs; You use Retrieve a page API)
-  rootDatabaseId: '1299ca88-d014-8185-8698-e0cfcd768679',
-
   // basic site info (required)
   name: 'Jhcode33 Tech Blog',
   domain: 'www.jhcode33.com',

@@ -13,9 +13,8 @@ export async function getSiteMap(): Promise<types.SiteMap> {
   const partialSiteMap = await getAllPages(
     config.rootNotionPageId,
     config.rootNotionSpaceId,
-    config.rootDatabaseId
   )
-
+  console.log('\npartialSiteMap', partialSiteMap)
   return {
     site: config.site,
     ...partialSiteMap
@@ -29,7 +28,6 @@ const getAllPages = pMemoize(getAllPagesImpl, {
 async function getAllPagesImpl(
   rootNotionPageId: string,
   rootNotionSpaceId: string,
-  rootDatabaseId: string
 ): Promise<Partial<types.SiteMap>> {
   const getPage = async (pageId: string, ...args) => {
     console.log('\nnotion getPage', uuidToId(pageId))
@@ -39,7 +37,6 @@ async function getAllPagesImpl(
   const pageMap = await getAllPagesInSpace(
     rootNotionPageId,
     rootNotionSpaceId,
-    rootDatabaseId,
     getPage
   )
 
