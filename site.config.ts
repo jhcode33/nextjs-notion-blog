@@ -53,16 +53,16 @@ export default siteConfig({
   // important pages. To use `navigationLinks`, set `navigationStyle` to `custom`.
   // navigationStyle: 'default',
   navigationStyle: 'custom',
-  navigationLinks: [
-    {
-      title: 'About',
-      pageId: '1179ca88d01481c7a782f8ff7989136b'
-    },
-    {
-      title: 'Portfolio',
-      pageId: '1179ca88d01481c483e9f76a9a5116be'
-    }
-  ],
+  // navigationLinks: [
+  //   {
+  //     title: 'About',
+  //     pageId: '1179ca88d01481c7a782f8ff7989136b'
+  //   },
+  //   {
+  //     title: 'Portfolio',
+  //     pageId: '1179ca88d01481c483e9f76a9a5116be'
+  //   }
+  // ],
   // -------- custom configs (2skydev) -------------
 
   // date-fns format string
