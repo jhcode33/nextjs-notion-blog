@@ -170,7 +170,7 @@ const CollectionViewBlock: React.FC<{
 
   return (
     <div className={cs('notion-collection', className)}>
-      <div className="notion-collection-header" style={style}>
+      {/* <div className="notion-collection-header" style={style}>
         {title && (
           <div className="notion-collection-header-title">
             <PageIcon block={block} className="notion-page-title-icon" hideDefaultIcon />
@@ -187,7 +187,7 @@ const CollectionViewBlock: React.FC<{
             onChangeView={onChangeView}
           />
         )}
-      </div>
+      </div> */}
 
       <CollectionView
         collection={collection}

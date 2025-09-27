@@ -37,13 +37,14 @@ export const defaultMapImageUrl = (url: string, block: Block) => {
     // ignore invalid urls
   }
 
-  if (url.startsWith('/images')) {
+  // pageIcon 추가
+  if (url.includes('defaultPageIconJhcode33')) {
+    url = `https://img.notionusercontent.com/s3/prod-files-secure%2Fa7bf333d-3700-4ad8-a838-d8d324d5e599%2F8d2ead7b-1497-4e5b-bf0a-5acf2ed1d1ee%2Ffavicon-512x512.png/size/w=250?exp=1759043364&sig=bBNnnpHc5dYfnYIuymCFb3ZSzLuNfin8jiSPAo5EAhg&id=1299ca88-d014-801c-9b86-c1464a181155&table=block`
+  } else if (url.startsWith('/image') || url.startsWith('/images')) {
     url = `https://www.notion.so${url}`
+  } else {
+    url = `https://www.notion.so/image/${encodeURIComponent(url)}`
   }
-
-  url = `https://www.notion.so${
-    url.startsWith('/image') ? url : `/image/${encodeURIComponent(url)}`
-  }`
 
   const notionImageUrlV2 = new URL(url)
   let table = block.parent_table === 'space' ? 'block' : block.parent_table
