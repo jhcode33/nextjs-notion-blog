@@ -1,27 +1,33 @@
-import * as React from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
-import cs from 'classnames'
-import { PageBlock } from 'notion-types'
-import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
-import { loadPrismComponentsWithRetry } from '~/lib/load-prism-components'
+import * as React from 'react'
 import BodyClassName from 'react-body-classname'
+
+// core notion renderer
 import { NotionRenderer } from 'react-notion-x'
 import TweetEmbed from 'react-tweet-embed'
 import { useSearchParam } from 'react-use'
 
+import cs from 'classnames'
 import * as config from '@/lib/config'
-import * as types from '@/lib/types'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
 import { searchNotion } from '@/lib/search-notion'
+import * as types from '@/lib/types'
 import { useDarkMode } from '@/lib/use-dark-mode'
+import { PageBlock } from 'notion-types'
 
+// utils
+import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
+import { loadPrismComponentsWithRetry } from '@/lib/load-prism-components'
+
+// components
+// import Comments from './Comments';
+import { Loading } from './Loading';
 import { Footer } from './Footer'
-import { Loading } from './Loading'
+
 import { NotionPageHeader } from './NotionPageHeader'
 import { Page404 } from './Page404'
 import { PageAside } from './PageAside'
@@ -243,12 +249,14 @@ export const NotionPage: React.FC<types.PageProps> = ({
     getPageProperty<string>('Description', block, recordMap) ||
     config.description
 
+  const hasCollectionView = Object.keys(recordMap.collection_query).length;
+
   return (
     <>
       <PageHead
         pageId={pageId}
         site={site}
-        //title={title}
+        title={title}
         description={socialDescription}
         image={socialImage}
         url={canonicalPageUrl}
@@ -258,6 +266,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       {isDarkMode && <BodyClassName className='dark-mode' />}
 
       <NotionRenderer
+        className={cs(pageId === site.rootNotionPageId ? 'indexPage' : 'childPage', { hasCollectionView })}
         bodyClassName={cs(
           styles.notion,
           pageId === site.rootNotionPageId && 'index-page'
