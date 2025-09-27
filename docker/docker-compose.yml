@@ -5,20 +5,6 @@ networks:
     external: true
 
 services:
-  redis:
-    container_name: redis
-    image: redis:7.4.1
-    user: "redis:redis"
-    networks:
-      - nextjs-notion-blog
-    expose:
-      - "6379"
-    command: redis-server /usr/local/etc/redis/redis.conf
-    volumes:
-      - ${REDIS_DATA_PATH}:/data
-      - ${REDIS_DEFAULT_CONFIG_FILE}:/usr/local/etc/redis/redis.conf
-    restart: always
-
   nextjs-notion-blog:
     container_name: nextjs-notion-blog
     image: jhcode33/nextjs-notion-blog:${TAG}
