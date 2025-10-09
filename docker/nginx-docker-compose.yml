@@ -11,8 +11,8 @@ services:
     networks:
       - nextjs-notion-blog
     ports:
-      - 80:80
-      - 443:443
+      - 8088:80
+      - 8443:443
     environment:
       - TZ=Asia/Seoul
     volumes:
